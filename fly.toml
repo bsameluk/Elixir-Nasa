@@ -1,0 +1,21 @@
+app = "elixir-nasa"
+primary_region = "ams"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PHX_HOST = "elixir-nasa.fly.dev"
+  PORT = "4000"
+
+[http_service]
+  internal_port = 4000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 1024
