@@ -2,6 +2,10 @@
 
 Phoenix LiveView application for calculating fuel requirements for interplanetary space missions. Built as a NASA contractor evaluation project, this app uses a backwards calculation algorithm with recursive "fuel for fuel" logic to accurately compute mission fuel needs.
 
+# DEMO
+
+https://elixir-nasa.fly.dev/
+
 ## Tech Stack
 
 - **Elixir:** 1.16.0
