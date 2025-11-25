@@ -34,21 +34,7 @@ mix test
 ## Docker
 
 ```bash
+docker-compose build --no-cache
 docker-compose up
-```
-
-## AWS Deployment
-
-```bash
-# Setup
-brew install awsebcli
-eb init -p docker nasa-flights-calculator --region us-east-1
-eb setenv SECRET_KEY_BASE=$(mix phx.gen.secret)
-
-# Deploy
-eb create nasa-calc-env
-eb open
-
-# Cleanup
-eb terminate nasa-calc-env --force
+docker-compose down
 ```

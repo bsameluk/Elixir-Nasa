@@ -304,7 +304,7 @@ defmodule NasaFlightsCalculatorWeb.MissionLive do
                           </div>
 
                           <%!-- Hover Tooltip --%>
-                          <div class="absolute hidden group-hover:block top-16 left-1/2 transform -translate-x-1/2 z-20">
+                          <div class="absolute hidden group-hover:block left-1/2 transform -translate-x-1/2 -translate-y-[108%] z-20">
                             <div class="bg-slate-900 border border-slate-600 rounded-lg shadow-2xl p-4 w-64">
                               <div class="text-sm font-semibold text-slate-200 mb-3">
                                 {planet_emoji(leg.from)} {leg.from.name} → {planet_emoji(leg.to)} {leg.to.name}
