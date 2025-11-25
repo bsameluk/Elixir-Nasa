@@ -1,18 +1,54 @@
-# NasaFlightsCalculator
+# NASA Flights Calculator
 
-To start your Phoenix server:
+Phoenix LiveView application for calculating fuel requirements for interplanetary space missions. Built as a NASA contractor evaluation project, this app uses a backwards calculation algorithm with recursive "fuel for fuel" logic to accurately compute mission fuel needs.
 
-* Run `mix setup` to install and setup dependencies
-* Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+## Tech Stack
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+- **Elixir:** 1.16.0
+- **Erlang/OTP:** 26
+- **Phoenix:** 1.8.1
+- **Phoenix LiveView:** 1.1.0
+- **Tailwind CSS + DaisyUI**
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## Setup
 
-## Learn more
+```bash
+# Generate secret key and create .env file
+echo "SECRET_KEY_BASE=$(mix phx.gen.secret)" > .env
+```
 
-* Official website: https://www.phoenixframework.org/
-* Guides: https://hexdocs.pm/phoenix/overview.html
-* Docs: https://hexdocs.pm/phoenix
-* Forum: https://elixirforum.com/c/phoenix-forum
-* Source: https://github.com/phoenixframework/phoenix
+## Local Development
+
+```bash
+mix deps.get
+mix phx.server
+```
+
+## Testing
+
+```bash
+# Run all tests
+mix test
+```
+
+## Docker
+
+```bash
+docker-compose up
+```
+
+## AWS Deployment
+
+```bash
+# Setup
+brew install awsebcli
+eb init -p docker nasa-flights-calculator --region us-east-1
+eb setenv SECRET_KEY_BASE=$(mix phx.gen.secret)
+
+# Deploy
+eb create nasa-calc-env
+eb open
+
+# Cleanup
+eb terminate nasa-calc-env --force
+```

@@ -9,7 +9,8 @@ defmodule NasaFlightsCalculator.Application do
   def start(_type, _args) do
     children = [
       NasaFlightsCalculatorWeb.Telemetry,
-      {DNSCluster, query: Application.get_env(:nasa_flights_calculator, :dns_cluster_query) || :ignore},
+      {DNSCluster,
+       query: Application.get_env(:nasa_flights_calculator, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: NasaFlightsCalculator.PubSub},
       # Start a worker by calling: NasaFlightsCalculator.Worker.start_link(arg)
       # {NasaFlightsCalculator.Worker, arg},

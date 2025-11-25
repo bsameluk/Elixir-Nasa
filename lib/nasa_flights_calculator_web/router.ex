@@ -17,7 +17,7 @@ defmodule NasaFlightsCalculatorWeb.Router do
   scope "/", NasaFlightsCalculatorWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", MissionLive
   end
 
   # Other scopes may use custom stacks.

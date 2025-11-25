@@ -1,0 +1,9 @@
+_build/
+deps/
+.git/
+test/
+docs/
+.elixir_ls/
+node_modules/
+.DS_Store
+

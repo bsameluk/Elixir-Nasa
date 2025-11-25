@@ -1,0 +1,11 @@
+_build/
+deps/
+.git/
+.gitignore
+test/
+docs/
+*.md
+.elixir_ls/
+.DS_Store
+node_modules/
+

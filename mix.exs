@@ -45,8 +45,8 @@ defmodule NasaFlightsCalculator.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 1.1.0"},
       {:lazy_html, ">= 0.1.0", only: :test},
-      {:esbuild, "~> 0.10", runtime: Mix.env() == :dev},
-      {:tailwind, "~> 0.3", runtime: Mix.env() == :dev},
+      {:esbuild, "~> 0.10", runtime: Mix.env() in [:dev, :prod]},
+      {:tailwind, "~> 0.3", runtime: Mix.env() in [:dev, :prod]},
       {:heroicons,
        github: "tailwindlabs/heroicons",
        tag: "v2.2.0",
@@ -73,7 +73,11 @@ defmodule NasaFlightsCalculator.MixProject do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["compile", "tailwind nasa_flights_calculator", "esbuild nasa_flights_calculator"],
+      "assets.build": [
+        "compile",
+        "tailwind nasa_flights_calculator",
+        "esbuild nasa_flights_calculator"
+      ],
       "assets.deploy": [
         "tailwind nasa_flights_calculator --minify",
         "esbuild nasa_flights_calculator --minify",
